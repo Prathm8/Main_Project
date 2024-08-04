@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     dir('Application-Code/frontend') {
-                            sh 'docker system prune -f'
+                            sh 'docker system prune -f'       #if any chnages done in code then this use to remove old image and container , deployment.yaml file fetch new version file tag-latest
                             sh 'docker container prune -f'
                             sh 'docker build -t ${AWS_ECR_REPO_NAME} .'
                     }
